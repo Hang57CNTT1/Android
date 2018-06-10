@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f3f6f3"
     android:scrollbars="none"
@@ -15,15 +16,26 @@
             android:name="com.jeny.hang.appmusic.Fragment.Fragment_Banner"
             android:id="@+id/fragmentbanner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </fragment>
+            android:layout_height="wrap_content"/>
         <fragment
             android:name="com.jeny.hang.appmusic.Fragment.Fragment_Playlist"
             android:id="@+id/fragmentplaylist"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </fragment>
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.jeny.hang.appmusic.Fragment.Fragment_ChuDe_TheLoai_ToDay"
+            android:id="@+id/fragmenttheloaitheongay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.jeny.hang.appmusic.Fragment.Fragment_Album_Hot"
+            android:id="@+id/fragmentalbum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.jeny.hang.appmusic.Fragment.Fragment_BaiHat_Hot"
+            android:id="@+id/fragmentbaihathot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </ScrollView>

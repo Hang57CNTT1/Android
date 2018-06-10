@@ -3,7 +3,10 @@ package com.jeny.hang.appmusic.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Quangcao {
+import java.io.Serializable;
+//Kế thừa dữ liệu và chuyển dưới dạng object sang page khác dùng Serializable
+public class Quangcao implements Serializable{
+
 
     @SerializedName("id")
     @Expose
