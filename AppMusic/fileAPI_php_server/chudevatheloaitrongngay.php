@@ -25,19 +25,17 @@
 	$querytheloai = "SELECT DISTINCT * FROM theloai ORDER BY rand(".date("Ymd").") LIMIT 4";
 	$datatheloai = mysqli_query($con,$querytheloai);
 	while ($row = mysqli_fetch_assoc($datatheloai)){
-		array_push($arraytheloai, new Chude($row['idTheLoai']
+		array_push($arraytheloai, new Theloai($row['idTheLoai']
 											,$row['idChuDe']
 											,$row['TenTheLoai']
 											,$row['HinhTheLoai']));
 	}
 
 
-
-
 	$querychude = "SELECT DISTINCT * FROM chude ORDER BY rand(".date("Ymd").") LIMIT 4";
 	$datachude = mysqli_query($con,$querychude);
 	while ($row = mysqli_fetch_assoc($datachude)){
-		array_push($arraychude, new Theloai($row['idChuDe']
+		array_push($arraychude, new Chude($row['idChuDe']
 											,$row['TenChuDe']
 											,$row['HinhChuDe']));
 	}

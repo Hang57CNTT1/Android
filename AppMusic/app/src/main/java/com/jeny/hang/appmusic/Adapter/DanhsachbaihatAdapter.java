@@ -4,83 +4,72 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.jeny.hang.appmusic.Activity.PlayNhacActivity;
 import com.jeny.hang.appmusic.Model.BaiHat;
 import com.jeny.hang.appmusic.R;
 import com.jeny.hang.appmusic.Service.APIService;
 import com.jeny.hang.appmusic.Service.Dataservice;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.ViewHolder> {
+public class DanhsachbaihatAdapter extends RecyclerView.Adapter<DanhsachbaihatAdapter.ViewHolder> {
     Context context;
-    ArrayList<BaiHat> baiHatArrayList;
-    View view;
+    ArrayList<BaiHat> mangbaihat;
 
-    public BaiHatHotAdapter(Context context, ArrayList<BaiHat> baiHatArrayList) {
+    public DanhsachbaihatAdapter(Context context, ArrayList<BaiHat> mangbaihat) {
         this.context = context;
-        this.baiHatArrayList = baiHatArrayList;
+        this.mangbaihat = mangbaihat;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        view = inflater.inflate(R.layout.dong_baihathot,parent,false);
+        View view = inflater.inflate(R.layout.dong_danhsachbaihat,parent,false);
+
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        BaiHat baiHat = baiHatArrayList.get(position);
-        holder.txtten.setText(baiHat.getTenBaiHat());
+
+        BaiHat baiHat = mangbaihat.get(position);
         holder.txtcasi.setText(baiHat.getCaSi());
-        //Picasso dùng để add hình vào dữ liệu
-        Picasso.with(context).load(baiHat.getHinhBaiHat()).into(holder.imghinh);
+        holder.txttenbaihat.setText(baiHat.getTenBaiHat());
+        holder.txtindex.setText(position + 1 + "");
     }
 
     @Override
     public int getItemCount() {
-        return baiHatArrayList.size();
+        return mangbaihat.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-
-        TextView txtten,txtcasi;
-        ImageView imghinh,imgluotthich;
+        TextView txtindex,txttenbaihat,txtcasi;
+        ImageView imgluotthich;
         public ViewHolder(View itemView) {
             super(itemView);
-            txtten = itemView.findViewById(R.id.textviewtenbaihathot);
-            txtcasi = itemView.findViewById(R.id.textviewtencasibaihathot);
-            imghinh = itemView.findViewById(R.id.imageviewbaihathot);
-            imgluotthich = itemView.findViewById(R.id.imageviewluotthich);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, PlayNhacActivity.class);
-                    intent.putExtra("cakhuc",baiHatArrayList.get(getPosition()));
-                    context.startActivity(intent);
-                }
-            });
+            txtcasi = itemView.findViewById(R.id.textviewtencasi);
+            txtindex = itemView.findViewById(R.id.textviewdanhsachindex);
+            txttenbaihat = itemView.findViewById(R.id.textviewtenbaihat);
+            imgluotthich = itemView.findViewById(R.id.Imageviewluotthichdanhsachbaihat);
+            //xử lí sự kiện cho toàn bộ các images lượt thích được load ra thành danh sách bài hát
             imgluotthich.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     imgluotthich.setImageResource(R.drawable.iconloved);
                     Dataservice dataservice = APIService.getService();
-                    retrofit2.Call<String> callback = dataservice.UpdateLuotthich("1",baiHatArrayList.get(getPosition()).getIdBaiHat());
+                    retrofit2.Call<String> callback = dataservice.UpdateLuotthich("1",mangbaihat.get(getPosition()).getIdBaiHat());
                     callback.enqueue(new Callback<String>() {
                         @Override
                         public void onResponse(retrofit2.Call<String> call, Response<String> response) {
@@ -103,7 +92,14 @@ public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.View
                     // Toast.makeText(context,baiHatArrayList.get(getPosition()).getTenBaiHat(),Toast.LENGTH_SHORT).show();
                 }
             });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, PlayNhacActivity.class);
+                    intent.putExtra("cakhuc",mangbaihat.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
-

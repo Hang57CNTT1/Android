@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jeny.hang.appmusic.Activity.DanhsachbaihatActivity;
 import com.jeny.hang.appmusic.Model.Quangcao;
@@ -52,17 +53,17 @@ public class BannerAdapter extends PagerAdapter {
         txttitlesongbanner.setText(arrayListbanner.get(position).getTenBaiHat());
         txtnoidung.setText(arrayListbanner.get(position).getNoiDung());
 
-        //10/6/2018: Bắt sự kiện onclick với Quảng Cáo
+        //10/6/2018: Bắt nút sự kiện onclick với Quảng Cáo chuyển trang mới
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //hiển thị thông báo khi click vào page quảng cáo
-              //  Toast.makeText(context,"Da click vao page",Toast.LENGTH_SHORT).show();
+              //Toast.makeText(context,"Da click vao page", Toast.LENGTH_SHORT).show();
                 //chuyển dữ liệu màn hình qua các danh sách bài hát
-                Intent intent = new Intent(context, DanhsachbaihatActivity.class);
-                //đẩy dữ liệu, thêm kế thừa ở Model Quảng Cáo
-                intent.putExtra("banner",arrayListbanner.get(position));
-                context.startActivity(intent);
+               Intent intent = new Intent(context, DanhsachbaihatActivity.class);
+               //đẩy dữ liệu, thêm kế thừa ở Model Quảng Cáo
+               intent.putExtra("banner",arrayListbanner.get(position));
+               context.startActivity(intent);
             }
         });
         container.addView(view);

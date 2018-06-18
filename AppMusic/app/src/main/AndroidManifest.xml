@@ -18,7 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.DanhsachbaihatActivity"></activity>
+        <activity android:name=".Activity.DanhsachbaihatActivity" />
+        <activity android:name=".Activity.DanhsachplaylistxemthemActivity" />
+        <activity android:name=".Activity.DanhsachtatcachudeActivity" />
+        <activity android:name=".Activity.DanhsachtheloaitheochudeActivity" />
+        <activity android:name=".Activity.DanhsachtatcaalbumActivity" />
+        <activity android:name=".Activity.PlayNhacActivity"></activity>
     </application>
 
 </manifest>

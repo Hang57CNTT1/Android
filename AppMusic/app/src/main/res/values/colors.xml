@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    //tao ma mau
+    <color name="mautim">#E543E5</color>
+    <color name="mauhong">#F7AFC9</color>
 </resources>

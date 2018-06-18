@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:id="@+id/coordinatorlayout"
-    tools:context=".Activity.DanhsachbaihatActivity">
+    tools:context="com.jeny.hang.appmusic.Activity.DanhsachbaihatActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbarlayout"
@@ -39,7 +39,7 @@
             </android.support.v7.widget.Toolbar>
             <ImageView
                 android:elevation="6dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="38dp"
                 android:src="@mipmap/ic_launcher"
                 android:layout_marginBottom="50dp"
                 android:layout_gravity="center"
@@ -58,7 +58,7 @@
         app:layout_anchor="@id/appbarlayout"
         app:layout_behavior="@string/bottom_sheet_behavior"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"/>
     <android.support.v4.widget.NestedScrollView
         android:layout_marginTop="30dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -67,8 +67,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycleviewsanhsachbaihat"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="wrap_content">
         </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

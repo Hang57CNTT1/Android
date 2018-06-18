@@ -3,8 +3,10 @@ package com.jeny.hang.appmusic.Service;
 import com.jeny.hang.appmusic.Model.Album;
 import com.jeny.hang.appmusic.Model.BaiHat;
 import com.jeny.hang.appmusic.Model.ChuDevaTheLoaiTrongNgay;
+import com.jeny.hang.appmusic.Model.Chude;
 import com.jeny.hang.appmusic.Model.Playlist;
 import com.jeny.hang.appmusic.Model.Quangcao;
+import com.jeny.hang.appmusic.Model.Theloai;
 
 import java.util.List;
 
@@ -36,4 +38,34 @@ public interface Dataservice  {
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
     Call<List<BaiHat>> GetDanhsachbaihattheoquangcao(@Field("idquangcao") String idquangcao);
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    //từ khóa gửi lên và từ khóa trong server phải trùng với nhau @idplaylist
+    Call<List<BaiHat>> GetDanhsachbaihattheoplaylist(@Field("idplaylist") String idplaylist);
+
+    @GET("danhsachplaylist_them.php")
+    Call<List<Playlist>> GetDanhsachcacplaylist();
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<BaiHat>> GetDanhsachbaihattheotheloai(@Field("idtheloai") String idtheloai);
+
+    @GET("tatcachude.php")
+    Call<List<Chude>> GetAllChuDe();
+
+    @FormUrlEncoded
+    @POST("theloaitheochude.php")
+    Call<List<Theloai>> GetTheloaitheochude(@Field("idchude")String idchude);
+
+    @GET("tatcaalbum.php")
+    Call<List<Album>> GetAllalbum();
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<BaiHat>> Getdanhsachbaihattheoalbum(@Field("idalbum")String idalbum);
+
+    @FormUrlEncoded
+    @POST("updateluotthich.php")
+    Call<String> UpdateLuotthich(@Field("luotthich")String luotthich,@Field("idbaihat")String idbaihat);
 }
