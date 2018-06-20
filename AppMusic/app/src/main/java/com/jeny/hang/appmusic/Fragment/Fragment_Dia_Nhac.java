@@ -2,6 +2,7 @@ package com.jeny.hang.appmusic.Fragment;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,9 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 
+import com.jeny.hang.appmusic.Model.BaiHat;
 import com.jeny.hang.appmusic.R;
+import com.jeny.hang.appmusic.Service.APIService;
+import com.jeny.hang.appmusic.Service.Dataservice;
+
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
 
 public class Fragment_Dia_Nhac extends Fragment {
     View view;
@@ -34,8 +41,8 @@ public class Fragment_Dia_Nhac extends Fragment {
         return view;
 
     }
-
-    public void PlayNhac(String hinhBaiHat) {
-
-    }
+//    public void PlayNhac(String hinh){
+//        Dataservice dataservice = APIService.getService();
+//        Call<BaiHat> callback
+//    }
 }
