@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/menu_app">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,6 +22,7 @@
 
             <ListView
                 android:id="@+id/lv_play_list"
+                android:hapticFeedbackEnabled="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -30,7 +32,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#e57308b2"
+            android:background="#5398eff2"
             android:orientation="vertical"
             android:padding="4dp">
 
@@ -122,7 +124,7 @@
                     <ImageView
                         android:id="@+id/iv_play"
                         android:layout_width="35dp"
-                        android:layout_height="40dp"
+                        android:layout_height="35dp"
                         android:padding="4dp"
                         android:src="@drawable/play_button" />
                 </LinearLayout>

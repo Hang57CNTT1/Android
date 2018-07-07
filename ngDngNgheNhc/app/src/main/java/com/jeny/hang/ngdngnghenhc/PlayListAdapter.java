@@ -1,5 +1,6 @@
 package com.jeny.hang.ngdngnghenhc;
 
+import android.app.Application;
 import android.content.Context;
 import android.media.MediaMetadataRetriever;
 import android.view.LayoutInflater;

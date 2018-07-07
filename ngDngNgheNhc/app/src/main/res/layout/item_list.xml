@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
-        android:textColor="#000"
+        android:textColor="#eb3091"
         android:text="Tên bài hát"
         android:textSize="18sp"
         android:layout_height="wrap_content"
@@ -18,6 +18,6 @@
         android:layout_width="match_parent"
         android:textSize="16sp"
         android:text="Tên ca sĩ"
-        android:textColor="#424242"
+        android:textColor="#3c252c"
         android:layout_height="wrap_content" />
 </LinearLayout>
